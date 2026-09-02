@@ -1,370 +1,257 @@
-# Multi-Agent AI Finance Assistant
+# Paisa Saathi AI 💰🤖
 
-![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Last Commit](https://img.shields.io/github/last-commit/vansh-121/Multi-Agent-AI-Finance-Assistant)
-![Forks](https://img.shields.io/github/forks/vansh-121/Multi-Agent-AI-Finance-Assistant?style=social)
-![Stars](https://img.shields.io/github/stars/vansh-121/Multi-Agent-AI-Finance-Assistant?style=social)
-![Streamlit](https://img.shields.io/badge/Streamlit-Enabled-red?logo=streamlit)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?logo=fastapi)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
-![Status](https://img.shields.io/badge/status-active-green.svg)
+**Paisa Saathi AI** is an AI-powered personal finance assistant designed to help users understand financial information, analyze market data, retrieve relevant information, and generate useful insights through a conversational interface.
 
-## Overview
-
-The **Multi-Agent AI Finance Assistant** is an open-source platform designed to provide intelligent financial analysis and decision-making support using a multi-agent AI framework. Leveraging large language models (Google Gemini) and advanced financial algorithms, this project enables users to perform tasks such as equity research, market forecasting, portfolio optimization, risk assessment, and earnings predictions. The system employs a modular, agent-based architecture where specialized AI agents collaborate to deliver precise and actionable financial insights.
-
-**Key Capabilities:**
-- 📊 **460+ Global Stocks**: Coverage of US, Asian, European markets, ETFs, and cryptocurrencies
-- 🤖 **AI-Powered Analysis**: Multi-agent system with specialized financial agents
-- 📈 **Earnings Predictions**: ML-based earnings forecasting with visualization
-- 📰 **Real-time News**: Automated news scraping and analysis
-- 🎯 **Risk Assessment**: Portfolio exposure and risk analysis
-- 📉 **Interactive Charts**: Stock comparisons, growth trends, and performance metrics
-
-This project is ideal for financial analysts, developers, and researchers looking to harness AI for financial applications. It demonstrates the power of multi-agent systems in tackling complex, real-world financial challenges.
+The application combines **Generative AI, specialized agents, financial APIs, Retrieval-Augmented Generation (RAG), and data visualization** to provide an interactive financial analysis experience.
 
 ---
 
-## 🚀 Live Demo (Beta)
+## 🚀 Features
 
-✅ **LIVE & RUNNING:** [multi-agent-ai-finance-assistant.streamlit.app](https://multi-agents-finance-assistant.streamlit.app)
-
-The application is now **fully deployed** with:
-- ✅ Streamlit frontend running smoothly
-- ✅ FastAPI backend operational and synchronized
-- ✅ Real-time market data integration
-- ✅ AI-powered analysis with Google Gemini
-- ✅ Interactive charts and visualizations
-
----
-
-## 📋 Recent Updates (v2.0.0)
-
-**✨ Major improvements:**
-- Fixed dependency conflicts (matplotlib, google-generativeai added)
-- Synchronized code across app.py, orchestrator, and streamlit_app
-- Enhanced error handling with safe type conversions
-- Improved comparison table with real market data calculations
-- Better fallback mechanisms for API rate limits
-
-**⚠️ Important Notes for Cloud Deployment:**
-
-Due to potential limitations on cloud platforms (Streamlit Cloud, Render, etc.), you may experience:
-- **Render timeout issues**: Long-running queries or Streamlit Cloud sleep mode
-- **Free trial limitations**: Resource constraints on free tier services
-- **Gemini API rate limits**: 50 requests/day on free tier may be exhausted
-- **Slow response times**: Cold starts and limited server resources
-
-**🎯 Recommended:** For the best experience with full functionality, **run locally**:
-```bash
-# Terminal 1 - Start FastAPI Backend
-uvicorn orchestrator.orchestrator:app --host 0.0.0.0 --port 8000
-
-# Terminal 2 - Start Streamlit Frontend
-streamlit run streamlit_app/app.py
-```
-
-Local deployment eliminates timeouts, rate limits, and resource constraints. See [Installation](#installation) section below.
+* 🤖 **AI Financial Assistant** — Ask questions about financial markets and receive AI-generated responses.
+* 📈 **Stock Analysis** — Retrieve and analyze stock-related information.
+* 📰 **Financial News** — Access relevant financial news and information.
+* 🔎 **RAG-based Retrieval** — Retrieve relevant information from indexed financial documents/data.
+* 📊 **Data Visualization** — Generate charts and visual representations of financial data.
+* 🔮 **Prediction** — Perform basic market/price prediction using machine-learning models.
+* 🧩 **Multi-Agent Architecture** — Different agents handle different financial tasks.
+* 🎙️ **Conversational Interface** — Interact with the assistant through a Streamlit-based UI.
 
 ---
-
-
-
-## Key Features
-
-- **Multi-Agent Collaboration**: Specialized agents (API Agent, Scraping Agent, Retriever Agent, Analysis Agent, Language Agent, Prediction Agent, Graphing Agent, Voice Agent) work together to process financial data and provide comprehensive insights.
-- **LLM-Powered Analysis**: Integrates Google Gemini (gemini-2.0-flash-exp, gemini-2.5-pro) for natural language understanding and financial reasoning with intelligent fallback mechanisms.
-- **Financial Data Integration**: 
-  - Real-time market data via Yahoo Finance API
-  - 460+ stocks from major global exchanges (US, Korea, Japan, Hong Kong, India, UK, Germany, France, Switzerland, Canada, Australia)
-  - 98 ETFs covering various sectors and strategies
-  - 20+ cryptocurrencies including Bitcoin, Ethereum, and major altcoins
-- **Advanced Analytics**:
-  - Portfolio risk exposure analysis with customizable weights
-  - ML-based earnings predictions using polynomial regression
-  - Year-over-year growth trend forecasting
-  - Historical vs predicted earnings visualization
-- **Interactive Visualizations**:
-  - Side-by-side stock comparison charts
-  - Normalized price performance tracking
-  - Volume analysis and trading patterns
-  - Combined earnings and growth analysis
-- **Intelligent Stock Selection**:
-  - Browse by category (Tech Giants, Banking, Semiconductors, etc.)
-  - Search by company name or symbol
-  - Custom symbol entry for any Yahoo Finance ticker
-- **Report Generation**: Automatically generates professional market briefs with real Yahoo Finance data and AI analysis.
-- **Extensible Architecture**: Modular design allows easy addition of new agents or data sources.
-- **Multiple Deployment Options**: Run as combined app or separated frontend/backend architecture.
-
----
-
----
-## 📸 Screenshots
-
-### 🧠 Home Dashboard with Stock Selection
-![Home Dashboard](screenshots/home_dashboard.png)
-*Select from 460+ global stocks across categories or search by name/symbol*
-
-### 📊 Market Brief Analysis
-![Generated Result](screenshots/generated_result.png)
-*AI-powered market analysis with portfolio risk assessment and earnings data*
-
-### 📈 Stock Comparison Charts
-![Stock Comparison](screenshots/stocks_comparison.png)
-*Side-by-side comparison with price trends, volume analysis, and performance metrics*
-
-### 📉 Earnings & Growth Trend Analysis
-![Graphs Analysis](screenshots/Graphs_analysis.png)
-*Historical vs predicted earnings with ML-based forecasting and growth trends*
-
-
-
----
-
-## 🧰 Tech Stack
-
-- **Frontend:** Streamlit + Interactive Charts (Matplotlib) + Stock Selection UI
-- **Backend:** FastAPI (RESTful Microservices Architecture)
-- **Data Sources:** 
-  - Yahoo Finance API (yfinance) for real-time market data
-  - BeautifulSoup & Newspaper3k for news scraping
-- **AI/ML:**
-  - Google Gemini (gemini-2.0-flash-exp, gemini-2.5-pro) via google-generativeai
-  - LangChain for RAG implementation
-  - Scikit-learn for earnings prediction (polynomial regression)
-  - FAISS for vector similarity search
-- **Data Processing:** Pandas, NumPy for financial data analysis
-- **Voice I/O:** SpeechRecognition + gTTS for voice interactions
-- **Deployment:** 
-  - Single-file deployment (app.py) for combined FastAPI + Streamlit
-  - Separated deployment (orchestrator + streamlit_app) for scalability
-  - Docker-ready with multi-stage builds
-  - Render/Streamlit Cloud compatible
-
----
-
-## 🧪 AI Agents Overview
-
-| Agent            | Role                                               | Technology |
-|------------------|----------------------------------------------------|------------|
-| **API Agent** (`api_agent.py`) | Fetches real-time market data from Yahoo Finance, handles data serialization | yfinance, pandas |
-| **Scraping Agent** (`scrapping_agent.py`) | Scrapes financial news with intelligent fallback mechanisms | newspaper3k, BeautifulSoup |
-| **Retriever Agent** (`retriever_agent.py`) | Implements RAG with FAISS vector store for document retrieval | LangChain, FAISS |
-| **Language Agent** (`language_agent.py`) | Generates market briefs using Google Gemini with fallback handling | google-generativeai, Gemini 2.0/2.5 |
-| **Analysis Agent** (`analysis_agent.py`) | Calculates portfolio risk exposure and performs statistical analysis | pandas, NumPy |
-| **Prediction Agent** (`prediction_agent.py`) | Forecasts earnings and growth rates using ML regression | scikit-learn, NumPy |
-| **Graphing Agent** (`graphing_agent.py`) | Creates interactive visualizations and comparison charts | matplotlib, pandas |
-| **Voice Agent** (`voice_agent.py`) | Handles speech-to-text and text-to-speech interactions | SpeechRecognition, gTTS |
-| **Simple Retriever Agent** (`simple_retriever_agent.py`) | Lightweight retrieval for quick queries | Custom implementation |
-
----
-
-
-## Project Motivation
-
-The financial industry demands rapid, accurate, and data-driven decisions. Traditional tools often struggle with the volume and complexity of financial data. This project addresses these challenges by deploying a multi-agent AI system that combines domain expertise with cutting-edge AI technologies, inspired by platforms like FinRobot.
-
-## Installation
-
-### Prerequisites
-- Python 3.10 or higher
-- Git
-- Google Gemini API key (Get it free from [Google AI Studio](https://ai.google.dev/))
-- Optional: Docker for containerized deployment
-
-### Setup
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/vansh-121/Multi-Agent-AI-Finance-Assistant.git
-   cd Multi-Agent-AI-Finance-Assistant
-   ```
-
-2. **Create a Virtual Environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure API Keys**:
-   Create a `.env` file in the root directory:
-   ```bash
-   GEMINI_API_KEY="your-gemini-api-key-here"
-   ```
-   Get your free API key from: https://ai.google.dev/
-
-### Running the Application
-
-#### Option 1: Combined Mode (Single File - Recommended for Local Development)
-Run both FastAPI backend and Streamlit frontend together:
-```bash
-streamlit run app.py
-```
-Access the app at: http://localhost:8501
-
-#### Option 2: Separated Mode (Production Deployment)
-
-**Terminal 1 - Start FastAPI Backend:**
-```bash
-uvicorn orchestrator.orchestrator:app --host 0.0.0.0 --port 8000
-```
-
-**Terminal 2 - Start Streamlit Frontend:**
-```bash
-streamlit run streamlit_app/app.py
-```
-
-Access the app at: http://localhost:8501  
-API docs available at: http://localhost:8000/docs
-
-#### Option 3: Docker Deployment
-```bash
-docker build -t finance-assistant .
-docker run -p 8501:8501 -p 8000:8000 --env-file .env finance-assistant
-```
-
-### Usage Examples
-
-1. **Browse by Category**: Select from Tech Giants, Banking, Semiconductors, etc.
-2. **Search Stocks**: Type "Apple" or "TSLA" to find specific stocks
-3. **Custom Symbols**: Enter any Yahoo Finance ticker (e.g., `AAPL, MSFT, TSM`)
-4. **Ask Questions**: 
-   - "Analyze AAPL, MSFT, and GOOGL. What's the market trend?"
-   - "Compare Samsung (005930.KS) and TSMC performance"
-   - "What's the risk exposure in my crypto portfolio?"
-
-### Available Stock Coverage
-
-- **248 US Stocks**: Major tech, finance, healthcare, retail, energy companies
-- **49 Asian Stocks**: Korea (.KS), Japan (.T), Hong Kong (.HK), India (.NS)
-- **40 European Stocks**: UK (.L), Germany (.DE), France (.PA), Switzerland (.SW)
-- **98 ETFs**: Sector, index, and thematic ETFs
-- **20 Cryptocurrencies**: BTC-USD, ETH-USD, and major altcoins
-## 🆕 Latest Features
-
-### Earnings Prediction & Visualization
-- **ML-Based Forecasting**: Polynomial regression models predict future earnings
-- **Growth Trend Analysis**: Year-over-year growth rate predictions
-- **Interactive Charts**: Historical vs predicted earnings visualization
-- **Comparison Tables**: Side-by-side metrics for multiple stocks
-
-### Enhanced Stock Selection
-- **460+ Global Stocks**: Comprehensive coverage across all major markets
-- **Smart Search**: Find stocks by company name or symbol
-- **Category Browsing**: Organized by sector and market
-- **Custom Symbols**: Support for any Yahoo Finance ticker
-
-### Intelligent Fallback System
-- **Rate Limit Handling**: Automatic fallback when API limits are reached
-- **Rich Fallback Data**: Market data enriched analysis even when news scraping fails
-- **Graceful Degradation**: Always provides meaningful results
-
-### API Features
-- **RESTful Endpoints**: Clean API design with FastAPI
-- **Health Checks**: Monitor system status at `/`
-- **Debug Tools**: Test scraping at `/debug/test-scraping`
-- **CORS Enabled**: Ready for frontend integration
-
-## ⚠️ API Rate Limits
-
-**Google Gemini Free Tier Limits:**
-- `gemini-2.0-flash-exp`: 10 requests/min, 1500 requests/day
-- `gemini-2.5-pro`: 50 requests/day
-
-**Recommendations:**
-1. Use `gemini-2.0-flash-exp` for high-frequency queries
-2. Create multiple Google Cloud projects for extended quotas
-3. Upgrade to paid tier for production use: https://ai.google.dev/pricing
-4. System has intelligent fallback to ensure continuous operation
 
 ## 🏗️ Architecture
 
+```text
+                    User
+                      │
+                      ▼
+              ┌───────────────┐
+              │  Streamlit UI │
+              └───────┬───────┘
+                      │
+                      ▼
+              ┌───────────────┐
+              │ Backend / API │
+              └───────┬───────┘
+                      │
+                      ▼
+             ┌─────────────────┐
+             │ Agent Orchestrator│
+             └────────┬────────┘
+                      │
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+   Financial      Retrieval      Analysis /
+   Data Agent       Agent        Prediction
+        │             │             │
+        ▼             ▼             ▼
+ Financial APIs    FAISS/RAG     ML Models
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
+                AI Response
+                      │
+                      ▼
+                Streamlit UI
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     Streamlit Frontend                       │
-│  (Stock Selection, Query Input, Visualization)              │
-└────────────────────────┬────────────────────────────────────┘
-                         │ HTTP/REST
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   FastAPI Orchestrator                       │
-│              (Routes & Coordinates Agents)                   │
-└───┬─────────┬─────────┬─────────┬─────────┬────────┬───────┘
-    │         │         │         │         │        │
-    ▼         ▼         ▼         ▼         ▼        ▼
-┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
-│  API   │ │Scraping│ │Retriever│ │Analysis│ │Language│ │Prediction│
-│ Agent  │ │ Agent  │ │ Agent   │ │ Agent  │ │ Agent  │ │  Agent   │
-└────────┘ └────────┘ └────────┘ └────────┘ └────────┘ └────────┘
-    │         │         │         │         │        │
-    ▼         ▼         ▼         ▼         ▼        ▼
-┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
-│ Yahoo  │ │  Web   │ │ FAISS  │ │ NumPy  │ │ Gemini │ │Sklearn │
-│Finance │ │Scraping│ │  DB    │ │ Stats  │ │  LLM   │ │   ML   │
-└────────┘ └────────┘ └────────┘ └────────┘ └────────┘ └────────┘
+
+---
+
+## 🛠️ Tech Stack
+
+### Programming & Backend
+
+* Python
+* FastAPI
+* Streamlit
+
+### AI & Machine Learning
+
+* Google Gemini
+* LangChain
+* Machine Learning models
+* Retrieval-Augmented Generation (RAG)
+
+### Vector Search
+
+* FAISS
+
+### Financial Data
+
+* Yahoo Finance
+* Financial/news data sources
+
+### Deployment
+
+* Docker
+* Railway
+
+---
+
+## 📂 Project Structure
+
+```text
+Paisa-Saathi-AI/
+│
+├── agents/
+│   └── Specialized AI agents
+│
+├── data_ingestion/
+│   └── Data collection and preprocessing
+│
+├── docs/
+│   └── Project documentation
+│
+├── orchestrator/
+│   └── Agent coordination and workflow
+│
+├── streamlit_app/
+│   └── Streamlit user interface
+│
+├── testing/
+│   └── Testing and validation
+│
+├── app.py
+├── requirements.txt
+├── Dockerfile
+├── docker_compose.yaml
+└── railway.json
 ```
 
-## ✅ Deployment Status
+---
 
-### ✨ Latest Status (v2.0.0 - November 23, 2025)
+## ⚙️ How It Works
 
-**✅ PRODUCTION READY**
+1. The user enters a financial query through the Streamlit interface.
+2. The request is sent to the backend.
+3. The agent orchestrator determines which capability is required.
+4. The appropriate agent processes the request.
+5. Financial APIs, retrieved information, or machine-learning models are used when required.
+6. The AI processes the collected information.
+7. The final response is returned to the user through the Streamlit interface.
 
-The application is now **fully operational** with:
+---
 
-| Component | Status | Details |
-|-----------|--------|---------|
-| **Streamlit Frontend** | ✅ Running | Interactive UI with 460+ stocks |
-| **FastAPI Backend** | ✅ Running | Orchestrator handling all AI agents |
-| **Market Data (Yahoo Finance)** | ✅ Active | Real-time stock data integration |
-| **AI Analysis (Google Gemini)** | ✅ Active | gemini-2.0-flash-exp, gemini-2.5-pro |
-| **Charts & Visualization** | ✅ Working | Comparison charts, earnings trends |
-| **Earnings Predictions** | ✅ Working | ML-based forecasting with sklearn |
-| **News Scraping** | ✅ Working | With intelligent fallback system |
+## 🧠 RAG Pipeline
 
-### ⚠️ Cloud Deployment Considerations
+The retrieval component uses a **Retrieval-Augmented Generation** approach.
 
-When running on **Streamlit Cloud, Render, or similar free tier services**, you may encounter:
+```text
+Documents / Financial Data
+          │
+          ▼
+     Data Processing
+          │
+          ▼
+      Text Chunks
+          │
+          ▼
+      Embeddings
+          │
+          ▼
+       FAISS Index
+          │
+          ▼
+    Similarity Search
+          │
+          ▼
+ Relevant Information
+          │
+          ▼
+       Gemini LLM
+          │
+          ▼
+    Final Response
+```
 
-**Potential Issues:**
-- 🕐 **Render/Server Timeouts**: 30-second timeout on Render free tier may cut off long-running queries
-- 💤 **Streamlit Cloud Sleep**: App goes to sleep after inactivity, causing slow startup
-- 📊 **Gemini API Rate Limits**: Free tier has 50 requests/day limit (may be shared if using same API key)
-- 🔌 **Connection Timeouts**: Intermittent connection issues due to resource constraints
-- ⚡ **Slow Response Times**: Cold starts and limited server CPU/RAM
+This allows the application to retrieve relevant information before generating an answer rather than relying only on the language model's internal knowledge.
 
-**Solutions:**
-1. **🏠 Run Locally** (RECOMMENDED) - Eliminates all timeout and resource issues
-2. **💳 Upgrade to Paid Tier** - Render hobby plan or Streamlit+ for better resources
-3. **🔑 Get Higher API Quotas** - Upgrade Google Gemini from free to paid tier
-4. **📝 Use Multiple API Keys** - Rotate through different Google Cloud projects
+---
 
-**👉 For best results: Clone and run locally following the [Installation](#installation) section**
+## 🔐 Environment Variables
 
-### Recent Fixes (v2.0.0)
-- ✅ Added missing `matplotlib` and `google-generativeai` dependencies
-- ✅ Fixed protobuf version conflicts with streamlit and other packages
-- ✅ Resolved unsafe float conversions in comparison metrics
-- ✅ Enhanced market data table with real calculations
-- ✅ Synchronized code across all three app versions
-- ✅ Improved error handling and fallback mechanisms
+Create a `.env` file in the project directory and configure the API keys required by the application.
 
+Example:
 
+```env
+GOOGLE_API_KEY=your_api_key
+```
 
-## 🙏 Acknowledgments
+Add any additional keys required by the data sources used by your local configuration.
 
-- Yahoo Finance for providing real-time market data
-- Google Gemini for powerful AI capabilities
-- LangChain for RAG implementation framework
-- Streamlit for the beautiful UI framework
-- FastAPI for the high-performance backend
+**Do not commit API keys or other secrets to GitHub.**
 
-      
-     
+---
+
+## 💻 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/shekhar421/Paisa-Saathi-AI.git
+cd Paisa-Saathi-AI
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure environment variables
+
+Create a `.env` file and add the required API keys.
+
+### 4. Run the application
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 🐳 Running with Docker
+
+Build the Docker image:
+
+```bash
+docker build -t paisa-saathi-ai .
+```
+
+Run the container:
+
+```bash
+docker run -p 8501:8501 paisa-saathi-ai
+```
+
+---
+
+## 🎯 Project Goals
+
+The main goals of Paisa Saathi AI are to:
+
+* Simplify access to financial information.
+* Provide an interactive AI-based financial assistant.
+* Combine financial data with Generative AI.
+* Demonstrate the use of multi-agent systems.
+* Apply RAG and vector search to financial information.
+* Provide useful visualizations for financial analysis.
+
+---
+
+## ⚠️ Disclaimer
+
+Paisa Saathi AI is intended for **educational and informational purposes only**.
+
+The information, predictions, and analysis generated by the application should not be considered financial, investment, or trading advice.
+
+Users should conduct their own research and consult qualified financial professionals before making financial decisions.
+
+---
+
+## 📜 License
+
+This project is released under the **MIT License**.
+
+If this repository contains or derives from third-party open-source components, their respective licenses and attribution requirements continue to apply.
